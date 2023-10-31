@@ -3,23 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation"
-    app:startDestination="@+id/nav_home">
+    app:startDestination="@+id/nav_primary">
 
     <fragment
-        android:id="@+id/nav_home"
-        android:name="com.example.gmailapp.ui.home.HomeFragment"
+        android:id="@+id/nav_primary"
+        android:name="com.example.gmailapp.ui.primary.PrimaryFragment"
         android:label="@string/menu_primary"
-        tools:layout="@layout/fragment_home" />
-
+        tools:layout="@layout/fragment_primary" />
     <fragment
-        android:id="@+id/nav_gallery"
-        android:name="com.example.gmailapp.ui.gallery.GalleryFragment"
-        android:label="@string/menu_Promotions"
-        tools:layout="@layout/fragment_gallery" />
+        android:id="@+id/nav_allinbox"
+        android:name="com.example.gmailapp.ui.allinboxes.AllInboxFragment"
+        android:label="All Inboxes"
+        tools:layout="@layout/fragment_allinbox" />
 
-    <fragment
-        android:id="@+id/nav_slideshow"
-        android:name="com.example.gmailapp.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_social"
-        tools:layout="@layout/fragment_slideshow" />
+
 </navigation>
