@@ -8,24 +8,25 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.example.gmailapp.databinding.FragmentPrimaryBinding
+import com.example.gmailapp.databinding.FragmentSocialBinding
 
 class SocialFragment : Fragment() {
-    private var _binding: FragmentPrimaryBinding? = null
+    private var _binding: FragmentSocialBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
 
-    private lateinit var primaryViewModel: SocialViewModel
+    private lateinit var socialViewModel: SocialViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        primaryViewModel = ViewModelProvider(this).get(SocialViewModel::class.java)
+     socialViewModel= ViewModelProvider(this).get(SocialViewModel::class.java)
 
-        _binding = FragmentPrimaryBinding.inflate(inflater, container, false)
+        _binding = FragmentSocialBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         setupViews()
@@ -34,10 +35,10 @@ class SocialFragment : Fragment() {
     }
 
     private fun setupViews() {
-        val textView: TextView = binding.textPrimary
+        val textView: TextView = binding.textSocial
 
 
-        primaryViewModel.text.observe(viewLifecycleOwner) {
+        socialViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
     }

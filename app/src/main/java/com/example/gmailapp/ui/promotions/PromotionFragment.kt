@@ -8,24 +8,25 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
 import com.example.gmailapp.databinding.FragmentPrimaryBinding
+import com.example.gmailapp.databinding.FragmentPromotionBinding
 
 class PromotionFragment : Fragment() {
-    private var _binding: FragmentPrimaryBinding? = null
+    private var _binding: FragmentPromotionBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
     private val binding get() = _binding!!
 
 
-    private lateinit var primaryViewModel: PromotionViewModel
+    private lateinit var promotionViewModel: PromotionViewModel
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        primaryViewModel = ViewModelProvider(this).get(PromotionViewModel::class.java)
+      promotionViewModel = ViewModelProvider(this).get(PromotionViewModel::class.java)
 
-        _binding = FragmentPrimaryBinding.inflate(inflater, container, false)
+        _binding = FragmentPromotionBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
         setupViews()
@@ -34,10 +35,10 @@ class PromotionFragment : Fragment() {
     }
 
     private fun setupViews() {
-        val textView: TextView = binding.textPrimary
+        val textView: TextView = binding.textPromotion
 
 
-        primaryViewModel.text.observe(viewLifecycleOwner) {
+        promotionViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
     }

@@ -1,14 +1,17 @@
 package com.example.gmailapp.ui.primary
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.gmailapp.R
 import com.example.gmailapp.databinding.FragmentPrimaryBinding
+import com.example.gmailapp.ui.allinboxes.AllinboxAdapter
 
 class PrimaryFragment : Fragment() {
     private var _binding: FragmentPrimaryBinding? = null
@@ -35,11 +38,17 @@ class PrimaryFragment : Fragment() {
     }
 
     private fun setupViews() {
-        val textView: TextView = binding.textPrimary
+        primaryViewModel.getGmailList()
 
+        primaryViewModel.gmailList.observe(viewLifecycleOwner){ listOfGmail->
 
-        primaryViewModel.text.observe(viewLifecycleOwner) {
-            textView.text = it
+            val allInboxAdapter = AllinboxAdapter(listOfGmail)
+            binding.allinboxRV.layoutManager = LinearLayoutManager(activity)
+            binding.allinboxRV.setHasFixedSize(true)
+            binding.allinboxRV.adapter = allInboxAdapter
+
+            Log.d("Mukul",""+listOfGmail.size)
+
         }
     }
 
