@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 
 class PromotionViewModel : ViewModel() {
     private val _text = MutableLiveData<String>().apply {
-        value = "This is Primary Fragment"
+        value = "This is promotion PromFragment"
     }
     val text: LiveData<String> = _text
     }
